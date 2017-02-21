@@ -1,0 +1,105 @@
+@(inputType: String, name: String, label: String, value: String, optionMap: Map[String, String], default: String, defaultList: List[String], cls: String, vc: String)
+
+<!-- 
+1:type
+2:name
+3:label
+4:value
+5:option map
+6:default
+7:default list
+8:class
+9:enabled
+ -->
+ 
+@inputType match {
+    case "VcCheckBox" => {
+        @if(vc == "enabled"){
+			<span>
+				 <input type="checkbox" id="@name" class="@cls" value="@value" name="@name" @if(default == value){checked}>
+				 <label for="@name" class="@cls">@label</label>
+			</span>
+		}else{
+			<span>
+				<input type="checkbox" id="@name" class="@cls" value="@value" name="@name" @if(default == value){checked} disabled>
+				<label for="@name" class="@cls">@label</label>
+			</span>
+		}
+    }
+    case "VcCheckBoxMulti" => {
+        @if(vc == "enabled"){
+			@for((key, itemvalue) <- optionMap){
+				<div class="form-group form-inline float-left" style="margin-right:20px;">
+					<input id="@name-@key" type="checkbox" value="@key" @if(default.contains(key)){checked}><label for="@name-@key">@Messages(itemvalue)</label>
+				</div>
+			}
+		}else{
+			@for(key <- defaultList){
+				<p>@optionMap.get(key)</p>
+			}
+		}
+    }
+    case "VcCheckBoxMultiVertical" => {
+        @if(vc == "enabled"){
+			@for((key, itemvalue) <- optionMap){
+				<input id="@name-@key" type="checkbox" value="@key" class="@cls" @if(default.contains(key)){checked}><label for="@name-@key">@Messages(itemvalue)</label><br />
+			}
+		}else{
+			@for(key <- defaultList){
+				<p>@optionMap.get(key)</p>
+			}
+		}
+    }
+    case "VcRadio" => {
+        @if(vc == "enabled"){
+			<span>
+				 <input type="radio" id="@name" class="@cls" value="@value" name="@name" @if(default == value){checked}>
+				 <label for="@name" class="@cls">@Messages(label)</label>
+			</span>
+		}else{
+			<span>
+				<input type="radio" id="@name" class="@cls" value="@value" name="@name" @if(default == value){checked} disabled>
+				<label for="@name" class="@cls">@Messages(label)</label>
+			</span>
+		}
+    }
+    case "VcRadioMulti" => {
+        @if(vc == "enabled"){
+			@for((key, itemvalue) <- optionMap){
+				<input id="@name-@key" type="radio" value="@key" name="@name" @if(key == default){ checked }>
+				<label for="@name-@key">@Messages(optionMap.get(key))</label>
+			}
+		}else{
+			@for((key, itemvalue) <- optionMap){
+				<input id="@name-@key" type="radio" value="@key" name="@name" @if(key == default){ checked } disabled>
+				<label for="@name-@key">@Messages(optionMap.get(key))</label>
+			}
+		}
+    }    
+    case "VcRadioMultiVertical" => {
+        @if(vc == "enabled"){
+			@for((key, itemvalue) <- optionMap){
+				<input id="@name-@key" type="radio" value="@key" name="@name" @if(key == default){ checked }>
+				<label for="@name-@key">@Messages(optionMap.get(key))</label><br />
+			}
+		}else{
+			@for((key, itemvalue) <- optionMap){
+				<input id="@name-@key" type="radio" value="@key" name="@name" @if(key == default){ checked } disabled>
+				<label for="@name-@key">@Messages(optionMap.get(key))</label><br />
+			}
+		}
+    }
+    case "VcCheckBoxMultiCheckedAll" => {
+        @if(vc == "enabled"){
+			@for((key, itemvalue) <- optionMap){
+				<div class="form-group form-inline float-left" style="margin-right:20px;">
+					<input id="@name-@key" type="checkbox" value="@key" checked><label for="@name-@key">@Messages(itemvalue)</label>
+				</div>
+			}
+		}else{
+			@for(key <- defaultList){
+				<p>@optionMap.get(key)</p>
+			}
+		}
+    }
+}

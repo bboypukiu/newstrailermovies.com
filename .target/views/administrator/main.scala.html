@@ -1,0 +1,120 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Avant</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Avant">
+	<meta name="author" content="The Red Team">
+
+  
+    <link rel="stylesheet" href="@routes.Assets.at("backend/css/styles.css?=140")'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+
+    <link href='@routes.Assets.at("backend/demo/variations/default.css")' rel='stylesheet' type='text/css' media='all' id='styleswitcher'> 
+    <link href='@routes.Assets.at("backend/demo/variations/default.css")' rel='stylesheet' type='text/css' media='all' id='headerswitcher'> 
+
+
+<link rel='stylesheet' type='text/css' href='@routes.Assets.at("backend/plugins/form-daterangepicker/daterangepicker-bs3.css")' /> 
+<link rel='stylesheet' type='text/css' href='@routes.Assets.at("backend/plugins/fullcalendar/fullcalendar.css")' /> 
+<link rel='stylesheet' type='text/css' href='@routes.Assets.at("backend/plugins/form-markdown/css/bootstrap-markdown.min.css")' /> 
+<link rel='stylesheet' type='text/css' href='@routes.Assets.at("backend/plugins/codeprettifier/prettify.css")' /> 
+<link rel='stylesheet' type='text/css' href='@routes.Assets.at("backend/plugins/form-toggle/toggles.css")' /> 
+
+
+
+
+
+</head>
+
+<body class="">
+
+
+    
+
+    <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <a id="leftmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
+        <a id="rightmenu-trigger" class="tooltips" data-toggle="tooltip" data-placement="left" title="Toggle Infobar"></a>
+
+        <div class="navbar-header pull-left">
+            <a class="navbar-brand" href="index.htm">Avant</a>
+        </div>
+
+        <ul class="nav navbar-nav pull-right toolbar">
+        	<li class="dropdown">
+        		<a href="#" class="dropdown-toggle username" data-toggle="dropdown"><span class="hidden-xs">John McCartney <i class="fa fa-caret-down"></i></span><img src="@routes.Assets.at("backend/demo/avatar/dangerfield.png")" alt="Dangerfield" /></a>
+        		<ul class="dropdown-menu userinfo arrow">
+        			<li class="username">
+                        <a href="#">
+        				    <div class="pull-left"><img src="@routes.Assets.at("backend/demo/avatar/dangerfield.png")" alt="Jeff Dangerfield"/></div>
+                        </a>
+        			</li>
+        			<li class="userlinks">
+        				<ul class="dropdown-menu">
+        					<li><a href="#" class="text-right">Sign Out</a></li>
+        				</ul>
+        			</li>
+        		</ul>
+        	</li>
+        	
+            <li>
+                <a href="#" id="headerbardropdown"><span><i class="fa fa-level-down"></i></span></a>
+            </li>
+           
+		</ul>
+    </header>
+    
+		    <div id="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <nav id="page-leftbar" role="navigation">
+                <!-- BEGIN SIDEBAR MENU -->
+            <ul class="acc-menu" id="sidebar">
+                <li id="search">
+                    <a href="javascript:;"><i class="fa fa-search opacity-control"></i></a>
+                     <form>
+                        <input type="text" class="search-query" placeholder="Search...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </li>
+                <li class="divider"></li>
+                <li><a href="javascript:;"><i class="fa fa-th"></i> <span>Product Controler</span> </a>
+                    <ul class="acc-menu">
+                        <li><a href="/administrator/productList"><span>Grids</span></a></li>
+                    </ul>
+                </li>
+               
+            </ul>
+        </nav>
+        <!-- END SIDEBAR MENU -->
+        @content
+  
+
+
+
+<script type='text/javascript' src='@routes.Assets.at("backend/js/jquery-1.10.2.min.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/js/jqueryui-1.10.3.min.js")'></script>
+
+<script type='text/javascript' src='@routes.Assets.at("backend/js/bootstrap.min.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/js/enquire.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/js/jquery.cookie.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/js/jquery.nicescroll.min.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/plugins/codeprettifier/prettify.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/plugins/easypiechart/jquery.easypiechart.min.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/plugins/sparklines/jquery.sparklines.min.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/plugins/form-toggle/toggle.min.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/plugins/fullcalendar/fullcalendar.min.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/plugins/form-daterangepicker/daterangepicker.min.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/plugins/form-daterangepicker/moment.min.js")'></script> 
+
+<script type='text/javascript' src='@routes.Assets.at("backend/plugins/pulsate/jQuery.pulsate.min.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/js/placeholdr.js")'></script> 
+<script type='text/javascript' src='@routes.Assets.at("backend/js/application.js")'></script> 
+<script type="text/javascript" src='@routes.Assets.at("backend/js/parsley.min.js")'></script> 
+<script type="text/javascript" src='@routes.Assets.at("backend/js/core-ajax-access.js")'></script>
+
+</body>
+
+</html>

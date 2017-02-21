@@ -1,0 +1,26 @@
+@(inputType: String, name: String)
+ 
+@inputType match {
+    case "CsDialogDiv" => {
+        <div id="@name" class="modal fade" role="dialog" aria-hidden="true"></div>
+		<script>
+		$("#@name").modal({
+			backdrop: 'static',
+		    keyboard: false,
+		    show: false
+		  });
+		</script>
+    }
+    
+    case "VcInputTextLabel" => {
+		<span class="text-preline text-break">@name</span>
+    }
+    
+    case "CsMessageDiv" => {
+		<div id="@name" class="div_cls_form_msg alert alert-danger" style="display: none;"></div>
+    }
+    case "CsMessageTopDiv" => {
+		<div id="@name" class="alert alert-warning fade in" style="display: none; margin: 0px auto;"></div>
+    }
+
+}

@@ -1,0 +1,66 @@
+@(listNews: List[models.entity.auto.News])
+
+@import asia.chiase.core.util._
+@import models.util._
+@main("Trailer Movie") {
+@if(listNews.size > 0){
+<div id="page-content">
+    <div id='wrap'>
+    @helper.inputTextVC("VcLinkSimple", "btn_add", "", Messages("item.common.action.add"), null, "btn btn-primary", "/administrator/newsAdd", "enabled")
+    
+    <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-orange">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 clearfix">
+                                	       <div id="div_id_game_list">
+						<table id="tbl_id_game_list" class="table table-bordered">
+							<thead>
+							<tr>
+								<th class="text-center">No</th>
+								<th class="text-center">News Title</th>
+								<th class="text-center">News Des</th>
+								<th class="text-center">Img Max</th>
+								<th class="text-center">Img Nomal</th>
+								<th class="text-center">Time</th>
+								<th class="text-center"></th>
+							</tr>
+							</thead>
+							<tbody>
+							@for((model, index) <- listNews.zipWithIndex){
+							        <tr>
+				 					<td class="text-center">@{index+1}</td>
+				 					<td>@model.title</td>
+									<td>@BBUtil.subDescription(model.description,100)</td>
+									<td>@model.imgmax</td>
+									<td>@model.imgnomal</td>
+									<td>@model.createdDate</td>		
+									<td class="text-center">
+										<a href="@backend.routes.NewsAdministratorController.newsEdit(model.id)" class="btn btn-primary" >@Messages("item.common.edit")</a>
+									</td>
+										</tr>
+							}
+							</tbody>
+						</table>
+					</div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- container -->
+    
+    
+			
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+	
+}
+
+
+</div> <!-- page-container -->
+}

@@ -1,0 +1,7 @@
+@(listProductByCategory: List[models.entity.auto.Product])
+
+
+@for(pro <- listProductByCategory) { 
+@ProductFeatured(pro)
+}
+							

@@ -1,0 +1,79 @@
+@(country : models.entity.auto.Country)
+
+@import asia.chiase.core.util._
+@import models.define._
+@main("Trailer Movie") {
+
+<div id="page-content">
+    <div id='wrap'>
+    <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <h4>@Messages("item.common.title.detail.area")</h4>
+
+								 <form id="id_form_game"  method=POST class="form-horizontal" enctype="multipart/form-data"  data-validate="parsley" id="validate-form">
+								 </form>
+								 @helper.form(action = backend.routes.CountryAdministratorController.saveCountry, 'enctype -> "multipart/form-data", 'id -> "myForm") {
+								 
+					<div class="row">
+						<div class="col-md-6">
+							<fieldset>
+								<div data-row-span="2">
+								 	<div data-field-span="1">
+										<label>Type Id</label>
+										<input type="text" id="countryId" value="@country.id"  readonly="readonly" name="countryId" placeholder="id" required="required" class="form-control">
+									</div>
+									
+									<div data-field-span="1">
+										<label>Country Name</label>
+										<input type="text" id="countryName" value="@country.name"  name="countryName" placeholder="Country Name" required="required" class="form-control">
+									</div>
+										
+									<div data-field-span="1">
+										<label>Deleted</label>
+						                    <div class="radio">
+						                      <label>
+						                        <input type="radio"  value="1" id="optionsRadios1" name="optionsRadios">
+						                       YES
+						                      </label>
+						                       <label>
+						                        <input type="radio" checked="" value="0" id="optionsRadios2" name="optionsRadios">
+						                       NO
+						                      </label>
+						                    </div>
+									</div>
+								</div>
+							</fieldset>
+
+
+						</div>
+						</div>
+						
+									
+                    <br/>
+		<div class="row">
+                            <div class="col-sm-5" >
+                                <div class="btn-toolbar">
+                                @helper.inputTextVC("VcSubmit", "btn_upd", "", Messages("item.common.action.upd"), null, "btn btn-primary", "", "enabled")
+                                
+                                @helper.inputTextVC("VcLinkSimple", "btn_bck", "", Messages("item.common.action.bck"), null, "btn btn-primary", "/administrator/countryList", "enabled")
+                                </div>
+                            </div>
+        </div>
+                    
+                    
+                   } 
+                </div>
+            </div>
+        </div> <!-- container -->
+    
+    
+			
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+
+
+
+</div> <!-- page-container -->
+}

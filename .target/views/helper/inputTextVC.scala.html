@@ -1,0 +1,141 @@
+@(inputType: String, name: String, label: String, value: String, dateValue: java.util.Date, cls: String, onclick: String, vc: String)
+
+<!--
+1:inputType: String
+2:name: String
+3:label: String
+4:value: String
+5:dateValue: java.util.Date
+6:cls: String
+7:onclick: String
+8:vc: String
+ -->
+
+@inputType match {
+	case "VcInputText" => {
+		@if(vc == "enabled"){
+			<input type="text" id="@name" name="@name" value="@value" class="form-control @cls" />
+		}else{
+			<span class="text-break">@value</span>
+			<input type="hidden" id="@name" name="@name" value="@value" class="@cls" />
+		}
+	}
+
+	case "VcInputDateEn" => {
+		@if(vc == "enabled"){
+			<input type="text" id="@name" name="@name" value="@asia.chiase.core.util.CCFormatUtil.formatDate(dateValue)" class="form-control @cls" />
+			<script>
+				$("#@name").pickadate({
+
+					//English
+					monthsFull: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12' ],
+			        monthsShort: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+			        weekdaysFull: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
+			        weekdaysShort: [ 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa' ],
+			        today: 'Today',
+			        clear: 'Clear',
+
+					selectMonths: true,
+					selectYears: true
+				});
+			</script>
+		}else{
+			<span>@asia.chiase.core.util.CCFormatUtil.formatDate(dateValue)</span>
+			<input type="hidden" id="@name" name="@name" value="@asia.chiase.core.util.CCFormatUtil.formatDate(dateValue)" />
+		}
+	}
+
+	case "VcInputDate" => {
+		@if(vc == "enabled"){
+			<input type="text" id="@name" name="@name" value="@asia.chiase.core.util.CCFormatUtil.formatDate(dateValue)" class="form-control @cls" />
+			<script>
+				$("#@name").pickadate({
+
+					//Japanese
+					monthsFull: [ '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月' ],
+			        monthsShort: [ '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+			        weekdaysFull: [ '日曜', '月曜', '火曜', '水曜', '木曜', '金曜', '土曜' ],
+			        weekdaysShort: [ '日曜', '月曜', '火曜', '水曜', '木曜', '金曜', '土曜' ],
+			        today: '本日',
+			        clear: 'クリア',
+
+					selectMonths: true,
+					selectYears: true
+				});
+			</script>
+		}else{
+			<span>@asia.chiase.core.util.CCFormatUtil.formatDate(dateValue)</span>
+			<input type="hidden" id="@name" name="@name" value="@asia.chiase.core.util.CCFormatUtil.formatDate(dateValue)" />
+		}
+	}
+
+	case "VcInputTime" => {
+		@if(vc == "enabled"){
+			<input type="text" id="@name" name="@name" value="@value" class="form-control readonly @cls" />
+			<script>
+				$("#@name").pickatime()
+			</script>
+		}else{
+			<span>@value</span>
+			<input type="hidden" id="@name" name="@name" value="@value" />
+		}
+	}
+
+	case "VcButton" => {
+		@if(vc == "enabled"){
+			<button id="@name" class="btn @cls" onclick="@onclick; return false;" >@value</button>
+		}else{
+		}
+	}
+
+	case "VcSubmit" => {
+		@if(vc == "enabled"){
+			<input type="submit" id="@name" value="@value" class="btn @cls" />
+		}else{
+		}
+	}
+
+	case "VcLinkSimple" => {
+		@if(vc == "enabled"){
+			<a href="@onclick" id="@name" name="@name" class="text-break @cls">@value</a>
+		}else{
+			<!-- <span class="@cls">@value</span> -->
+		}
+	}
+
+	case "VcLink" => {
+		@if(vc == "enabled"){
+			<a href="javascript:void(0);" id="@name" name="@name" class="@cls" onclick="@onclick; return false;" >@value</a>
+		}else{
+			<span class="@cls">@value</span>
+		}
+	}
+
+	case "VcLinkLabel" => {
+		@if(vc == "enabled"){
+			<a href="javascript:void(0);" value="@value" id="@name" name="@name" class="@cls" onclick="@onclick; return false;">@label</a>
+		}else{
+			<span class="@cls">@label</span>
+		}
+	}
+
+	case "VcLinkHide" => {
+		@if(vc == "enabled"){
+			<a href="javascript:void(0);" id="@name" name="@name" class="@cls" onclick="@onclick; return false;">@value</a>
+		}else{
+		}
+	}
+
+	case "VcInputPassword" => {
+		@if(vc == "enabled"){
+			<input type="password" id="@name" name="@name" value="@value" class="form-control @cls" />
+		}else{
+			<span>***</span>
+			<input type="hidden" id="@name" name="@name" value="@value" />
+		}
+	}
+
+	case "VcHiddenText" => {
+		<input type="hidden" id="@name" />
+	}
+}

@@ -1,0 +1,130 @@
+@(inputType: String, name: String, nameDel: String, nameImage: String, data: String, title: String, cls: String, style: String, vc: String)
+ <script src='@routes.Assets.at("backend/js/jquery-2.0.2.min.js")'></script>
+@inputType match {
+    case "VcFileImage" => {
+        @if(vc == "enabled") {
+			<input type='file' name="@name" id="@name" accept="images/*" style="display:none;" />
+			<button id="btn-@name" class="btn btn-default @cls" >@Messages("item.common.file")</button>
+			@helper.inputCheckboxVC("VcCheckBox", nameDel, Messages("item.common.action.del"), "Y", null, "false", null, "", vc)
+			
+			<script>
+				$("#btn-@name").click(function(e){
+					e.preventDefault();
+					$("#@name").click();
+				});
+				
+				$("#@name").change(function(){
+					if(this.files && this.files[0]){
+						var reader = new FileReader();
+						reader.onload = function (e){
+							$("#@nameImage").show();
+							$("#@nameImage").attr('src', e.target.result);
+						}
+						reader.readAsDataURL(this.files[0]);
+					}
+				});
+			</script>
+		}else{
+		}
+    }
+    case "VcFileImage2" => {
+        @if(vc == "enabled") {
+        	<div class="form-inline">
+				<input type='file' name="@name" id="@name" accept="images/*" style="display:none;" />
+				<button id="btn-@name" class="btn btn-default @cls" >@Messages("item.common.file")</button>
+        	</div>
+			
+			<script>
+				$("#btn-@name").click(function(e){
+					e.preventDefault();
+					$("#@name").click();
+				});
+				
+				$("#@name").change(function(){
+					var ext = this.value.match(/\.(.+)$/)[1];
+					switch(ext){
+						case 'jpg':
+						case 'jpeg':
+						case 'png':
+						case 'gif':
+							//$('#uploadButton').attr('disabled', false);
+							break;
+						default:
+							alert('@Messages("common.invalid.image.extension")');
+							this.value = '';
+					}
+					
+					if(this.files && this.files[0]){
+						var reader = new FileReader();
+						reader.onload = function (e){
+							$("#@nameImage").show();
+							$("#@nameImage").attr('src', e.target.result);
+						}
+						reader.readAsDataURL(this.files[0]);
+					}
+				});
+			</script>
+		}else{
+		}
+    }
+    case "VcUploadMedia" => {
+        @if(vc == "enabled") {
+			<input type='file' name="@name" id="@name" accept="file_extension|audio/*|video/*|image/*|media_type" style="display:none;" />
+			<button id="btn-@name" class="btn btn-default @cls" >@Messages("item.common.file")</button>
+			
+			<script>
+				$("#btn-@name").click(function(e){
+					e.preventDefault();
+					$("#@name").click();
+				});
+				
+				$("#@name").change(function(){
+					if(this.files && this.files[0]){
+						var reader = new FileReader();
+						reader.onload = function (e){
+							$("#@nameImage").show();
+							$("#@nameImage").attr('src', e.target.result);
+						}
+						reader.readAsDataURL(this.files[0]);
+					}
+				});
+			</script>
+		}else{
+		}
+    }
+    
+    case "FormatImage" => {
+		@if(data == null){
+			<span><img id="@name" title="@title" class="@cls" style="border:none; display:none; @style" /></span>
+		}else{			
+			<img id="@name" src="data:images/png;base64,@data" title="@title" class="@cls" style="border:none; @style" />
+			<!-- <video id="@name" width="320" height="240" controls style="display:none; border:none; @style">
+				<source src="@data" type="video/mp4">
+				Your browser does not support the video tag.
+			</video> --> 
+		}
+    }
+    
+    case "FormatImage2" => {
+		@if(data == null){
+			<span><img id="@name" title="@title" class="@cls" style="border:none; display:none; @style" /></span>
+		}else{			
+			<img id="@name" src='@routes.Assets.at("images/" + data)' title="@title" class="@cls" style="border:none; @style" />
+			<!-- <video id="@name" width="320" height="240" controls style="display:none; border:none; @style">
+				<source src="@data" type="video/mp4">
+				Your browser does not support the video tag.
+			</video> --> 
+		}
+    }
+     case "FormatImage3" => {
+		@if(data == null){
+			<span><img id="@name" title="@title" class="@cls" style="border:none; display:none; @style" /></span>
+		}else{			
+			<img id="@name" src='@routes.Assets.at(data)' title="@title" class="@cls" style="border:none; @style" />
+			<!-- <video id="@name" width="320" height="240" controls style="display:none; border:none; @style">
+				<source src="@data" type="video/mp4">
+				Your browser does not support the video tag.
+			</video> --> 
+		}
+    }
+}

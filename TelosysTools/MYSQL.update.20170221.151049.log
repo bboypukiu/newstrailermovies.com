@@ -1,0 +1,20 @@
+Update date : Tue Feb 21 15:10:49 ICT 2017
+ 
+ Table 'country' found in repository
+ . Column 'deleted' added
+ (*) table 'country' updated : 1 change(s)
+ 
+ Table 'news' found in repository
+ (=) table 'news' unchanged
+ 
+ Table 'play_evolutions' found in repository
+ (=) table 'play_evolutions' unchanged
+ 
+ Table 'product' found in repository
+ (=) table 'product' unchanged
+ 
+ Table 'productcategory' found in repository
+ (=) table 'productcategory' unchanged
+ 
+ Table 'producttype' found in repository
+ (=) table 'producttype' unchanged

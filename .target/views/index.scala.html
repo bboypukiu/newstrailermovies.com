@@ -1,0 +1,188 @@
+@(result: Map[String, Object])
+
+
+@listBaner = @{
+	result.get("listBaner").asInstanceOf[List[models.entity.auto.Product]]
+}
+
+@listFooter = @{
+	result.get("listFooter").asInstanceOf[List[models.entity.auto.Product]]
+}
+
+@listProductBannerBottom = @{
+	result.get("listProductBannerBottom").asInstanceOf[List[models.entity.auto.Product]]
+}
+@listAllProductTypemap = @{
+	result.get("listAllProductTypemap").asInstanceOf[Map[String, String]]
+}
+@listProductByType2 = @{
+	result.get("listProductByType_2").asInstanceOf[List[models.entity.auto.Product]]
+}
+@listProductByType3 = @{
+	result.get("listProductByType_3").asInstanceOf[List[models.entity.auto.Product]]
+}
+@listProductByType4 = @{
+	result.get("listProductByType_4").asInstanceOf[List[models.entity.auto.Product]]
+}
+
+@main("Trailer Movie") {
+<div class="general_social_icons">
+	<nav class="social">
+		<ul>
+			<li class="w3_facebook"><a href="https://www.facebook.com/Trailer.movie.FullHD/?fref=ts">Facebook <i class="fa fa-facebook"></i></a></li>
+			<!-- li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
+			<li class="w3_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
+			<li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>	 -->			  
+		</ul>
+  </nav>
+</div>
+<!-- banner -->
+	<div id="slidey" style="display:none;">
+		<ul>
+		
+			@for(pro <- listBaner) { 
+			<li>
+			<img src="assets/@pro.imgmax" alt="@pro.title">
+			<p class='title'>@pro.title</p>
+			<p class='description'>@models.util.BBUtil.subDescription(pro.description,80)</p>
+			</li>
+			}
+			
+		</ul>   	
+    </div>
+    <script src="@routes.Assets.at("js/jquery.slidey.js")"></script>
+    <script src="@routes.Assets.at("js/jquery.dotdotdot.min.js")"></script>
+	   <script type="text/javascript">
+			$("#slidey").slidey({
+				interval: 8000,
+				listCount: 5,
+				autoplay: false,
+				showList: true
+			});
+			$(".slidey-list-description").dotdotdot();
+		</script>
+<!-- //banner -->
+<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<div class="container">
+			<div class="w3_agile_banner_bottom_grid">
+				<div id="owl-demo" class="owl-carousel owl-theme">
+					
+					@for(pro <- listProductBannerBottom) { 
+					<!-- itemstart -->
+					<div class="item">
+					@product(pro)
+					</div>
+					<!-- itemend -->
+					}
+
+				</div>
+			</div>			
+		</div>
+	</div>
+<!-- //banner-bottom -->
+
+<!-- general -->
+	<div class="general">
+		<h4 class="latest-text w3_latest_text">Featured Movies</h4>
+		<div class="container">
+			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+				<ul id="myTab" class="nav nav-tabs" role="tablist">
+			
+			
+			@if(listAllProductTypemap != null){
+					@for((key, value) <- listAllProductTypemap){
+						@if(key=="1"){
+						<li role="presentation" class="active"><a href="#@value" id="@value-tab" role="tab" data-toggle="tab" aria-controls="@value" aria-expanded="true">@value</a></li>
+						}else{
+						<li role="presentation"><a href="#@value" role="tab" id="@value-tab" data-toggle="tab" aria-controls="@value" aria-expanded="false">@value</a></li>
+						}
+					}
+			}
+			
+				
+				</ul>
+				
+				<div id="myTabContent" class="tab-content">
+					@for((key, value) <- listAllProductTypemap){
+						@if(key=="1"){
+						<div role="tabpanel" class="tab-pane fade active in" id="@value" aria-labelledby="@value-tab">
+							<div class="w3_agile_featured_movies">
+								<!-- itemstart -->
+								@for(pro <- result.get("listProductByType_"+key).asInstanceOf[List[models.entity.auto.Product]]) { 
+								@ProductFeatured(pro)
+								}
+								<!-- itemend -->
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+						}else{
+						     <div role="tabpanel" class="tab-pane fade" id="@value" aria-labelledby="@value-tab">
+								@for(pro <- result.get("listProductByType_"+key).asInstanceOf[List[models.entity.auto.Product]]) {
+									@ProductFeatured(pro)
+								}
+							<div class="clearfix"> </div>							
+						</div>
+						}
+					}
+
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- //general -->
+<!-- Latest-tv-series -->
+	<div class="Latest-tv-series">
+		<h4 class="latest-text w3_latest_text w3_home_popular">Most Popular Movies</h4>
+		<div class="container">
+			<section class="slider">
+				<div class="flexslider">
+					<ul class="slides">	
+						<!-- itemstart -->
+							@for(pro <- listFooter) { 
+							@mostPopularMovies(pro,listBaner)
+							}
+						<!-- itemend -->
+					</ul>
+				</div>
+			</section>
+			<!-- flexSlider -->
+				<link rel="stylesheet" href="@routes.Assets.at("css/flexslider.css")" type="text/css" media="screen" property="" />
+				<script defer src="@routes.Assets.at("js/jquery.flexslider.js")"></script>
+				<script type="text/javascript">
+				$(window).load(function(){
+				  $('.flexslider').flexslider({
+					animation: "slide",
+					start: function(slider){
+					  $('body').removeClass('loading');
+					}
+				  });
+				});
+			  </script>
+			<!-- //flexSlider -->
+		</div>
+	</div>
+	<!-- pop-up-box -->  
+		<script src="@routes.Assets.at("js/jquery.magnific-popup.js")" type="text/javascript"></script>
+	<!--//pop-up-box -->
+	
+
+	<script>
+		$(document).ready(function() {
+		$('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
+			type: 'inline',
+			fixedContentPos: false,
+			fixedBgPos: true,
+			overflowY: 'auto',
+			closeBtnInside: true,
+			preloader: false,
+			midClick: true,
+			removalDelay: 300,
+			mainClass: 'my-mfp-zoom-in'
+		});
+																		
+		});
+	</script>
+<!-- //Latest-tv-series -->
+
+}

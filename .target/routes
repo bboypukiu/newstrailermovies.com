@@ -1,0 +1,68 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.HomeController.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+
+GET     /moviesclip                           controllers.HomeController.single(id:Integer)
+
+GET     /list                             controllers.Application.list()
+
+GET     /series                             controllers.Application.series()
+GET     /news                             controllers.Application.news()
+
+GET  /newssingle  				controllers.Application.newssingle()
+GET  /comedy				controllers.Application.comedy()
+GET  /contact				controllers.Application.contact()
+GET  /faq					controllers.Application.faq()
+GET  /horror				controllers.Application.horror()
+GET  /shortcodes				controllers.Application.shortcodes()
+GET  /icons				controllers.Application.icons()
+
+GET     /genres                             controllers.GenresController.genres(id:Integer)
+
+GET		/genres/paging            controllers.PaggingController.pagging_Genres_PagesNews(typ:Integer,page:Integer)
+GET     /assets/javascripts/routes            controllers.PaggingController.javascriptRoutes()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GET  /administrator/index				backend.AdministratorController.index()
+GET  /administrator/productList				backend.AdministratorController.index()
+GET  /administrator/productEdit          backend.AdministratorController.productEdit(id:Integer)
+GET  /administrator/productAdd          backend.AdministratorController.productAdd()
+POST  /administrator/saveProduct          backend.AdministratorController.saveProduct()

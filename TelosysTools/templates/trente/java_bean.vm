@@ -1,0 +1,110 @@
+package ${target.javaPackageFromFolder(${SRC})};
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import models.entity.DatabaseCommonModel;
+
+#foreach($import in $java.imports($entity.attributes))
+import $import;
+#end
+
+@Entity
+
+public class $entity.name extends DatabaseCommonModel{
+
+	private static final long serialVersionUID = 1L;
+
+    //----------------------------------------------------------------------
+    // FIELD NAME 
+    //----------------------------------------------------------------------
+#foreach($field in $entity.keyAttributes)
+	#set ($propertyName = "${field.databaseName}_property")
+	public static final String $propertyName.toUpperCase() = "$field.formattedName(5)"; // Primary Key Name
+#end
+
+#foreach($field in $entity.nonKeyAttributes)
+	#set ($propertyName = "${field.databaseName}_property")
+	public static final String $propertyName.toUpperCase() = "$field.formattedName(5)";
+#end
+
+#foreach($field in $entity.keyAttributes)
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_${entity.databaseTable}")
+	public $field.formattedType(10) $field.formattedName(12) #if($field.hasInitialValue())= ${field.initialValue} #end; // Primary Key
+#end
+
+#foreach($field in $entity.nonKeyAttributes)
+	public $field.formattedType(10) $field.formattedName(12) #if($field.hasInitialValue())= ${field.initialValue} #end;
+#end
+
+    //----------------------------------------------------------------------
+    // ENTITY DATA FIELDS 
+    //----------------------------------------------------------------------    
+
+#foreach($forign in $entity.databaseForeignKeys)
+// comment2
+$forign.name
+##$forign.jpaAnnotations
+#end
+
+#set($fieldsLink = $entity.getAttributesByCriteria($const.NOT_KEY, $const.IN_SELECTED_LINKS))
+
+    //----------------------------------------------------------------------
+    // ENTITY LINKS (RELATIONSHIP)
+    //----------------------------------------------------------------------
+
+    //----------------------------------------------------------------------
+    // CONSTRUCTOR 
+    //----------------------------------------------------------------------    
+    public ${entity.name}(){
+        super();
+    }
+
+    //----------------------------------------------------------------------
+    // GETTER(S) & SETTER(S) FOR THE PRIMARY KEY 
+    //----------------------------------------------------------------------    
+#foreach($field in $entity.keyAttributes)
+#if ($field.setter)    
+	public void ${field.setter}($field.type $field.name){
+        this.$field.name = $field.name ;
+    }
+#end
+#if ($field.getter)    
+	public $field.type ${field.getter}(){
+        return this.$field.name;
+    }
+#end
+#end
+
+#foreach($field in $entity.nonKeyAttributes)
+#if ($field.databaseName)    
+#end
+#if ($field.setter)
+    public void ${field.setter}($field.type $field.name){
+        this.$field.name = $field.name;
+    }
+#end
+#if ($field.getter)
+    public $field.type ${field.getter}(){
+        return this.$field.name;
+    }
+#end
+
+#end  
+
+    //----------------------------------------------------------------------
+    // toString METHOD
+    //----------------------------------------------------------------------
+$java.toStringMethod($entity, 4)
+}

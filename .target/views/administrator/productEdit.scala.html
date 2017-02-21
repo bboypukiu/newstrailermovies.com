@@ -1,0 +1,119 @@
+@(pro : models.entity.auto.Product)(result: Map[String, Object])
+
+@listAllProductTypemap = @{
+	result.get("listAllProductTypemap").asInstanceOf[Map[String, String]]
+}
+
+@listAllProductCtegorymap = @{
+	result.get("listAllProductCtegorymap").asInstanceOf[Map[String, String]]
+}
+
+@listAllCountrymap = @{
+	result.get("listAllCountrymap").asInstanceOf[Map[String, String]]
+}
+
+@import asia.chiase.core.util._
+@import models.define._
+@main("Trailer Movie") {
+
+<div id="page-content">
+    <div id='wrap'>
+    <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <h4>@Messages("item.common.title.detail.area")</h4>
+
+								 <form id="id_form_game"  method=POST class="form-horizontal" enctype="multipart/form-data"  data-validate="parsley" id="validate-form">
+								 </form>
+								 @helper.form(action = backend.routes.AdministratorController.saveProduct, 'enctype -> "multipart/form-data", 'id -> "myForm") {
+								 
+					<div class="row">
+						<div class="col-md-6">
+							<fieldset>
+								<div data-row-span="2">
+								 	<div data-field-span="1">
+										<label>Pro Id</label>
+										<input type="text" id="proId" value="@pro.id"  readonly="readonly" name="proId" placeholder="id" required="required" class="form-control">
+									</div>
+									
+									<div data-field-span="1">
+										<label>Product Title</label>
+										<input type="text" id="proTitle" value="@pro.title"  name="proTitle" placeholder="Product Title" required="required" class="form-control">
+									</div>
+										<div data-field-span="1">
+										<label>Description</label>
+										<input type="text" id="description" value="@pro.description"  name="description" placeholder="description" required="required" class="form-control">
+									</div>
+									
+										<div data-field-span="1">
+										<label>Link Video</label>
+										<input type="text" id="linkvideo" value="@pro.linkvideo"  name="linkvideo" placeholder="linkvideo" required="required" class="form-control">
+									</div>
+											<div data-field-span="1">
+										<label>cate</label>
+										@helper.inputSelectVC("VcSelectSingle", "category", listAllProductCtegorymap, String.valueOf(pro.country), null, "", "","enabled")
+									</div>
+									<div data-field-span="1">
+										<label>type</label>
+										
+										@helper.inputSelectVC("VcSelectSingle", "type", listAllProductTypemap,String.valueOf(pro.getType()), null, "", "","enabled")
+									</div>
+									<div data-field-span="1">
+										<label>country</label>
+										@helper.inputSelectVC("VcSelectSingle", "country", listAllCountrymap,  String.valueOf(pro.country), null, "", "","enabled")
+									</div>
+							
+									<div data-field-span="1">
+								    	<label>Img</label>
+								    	@helper.inputFileVC("VcFileImage2", "image", "", "img_id_news_ava", "", "", "", "", "enabled")
+								    	<br>
+								    	@helper.inputFileVC("FormatImage3", "img_id_news_ava", "", "", pro.imgmax, "", "", "max-width:100px; max-height:80px;", "")
+								    </div>
+									<div data-field-span="1">
+										<label>Deleted</label>
+						                    <div class="radio">
+						                      <label>
+						                        <input type="radio"  value="1" id="optionsRadios1" name="optionsRadios">
+						                       YES
+						                      </label>
+						                       <label>
+						                        <input type="radio" checked="" value="0" id="optionsRadios2" name="optionsRadios">
+						                       NO
+						                      </label>
+						                    </div>
+									</div>
+								</div>
+							</fieldset>
+
+
+						</div>
+						</div>
+						
+									
+                    <br/>
+		<div class="row">
+                            <div class="col-sm-5" >
+                                <div class="btn-toolbar">
+                                @helper.inputTextVC("VcSubmit", "btn_upd", "", Messages("item.common.action.upd"), null, "btn btn-primary", "", "enabled")
+                                
+                                @helper.inputTextVC("VcLinkSimple", "btn_bck", "", Messages("item.common.action.bck"), null, "btn btn-primary", "/administrator/index", "enabled")
+                                </div>
+                            </div>
+        </div>
+                    
+                    
+                   } 
+                </div>
+            </div>
+        </div> <!-- container -->
+    
+    
+			
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+
+
+
+</div> <!-- page-container -->
+}

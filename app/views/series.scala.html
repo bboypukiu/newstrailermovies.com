@@ -1,0 +1,86 @@
+@(result: Map[String, Object])
+
+@listProductBannerBottom = @{
+	result.get("listProductBannerBottom").asInstanceOf[List[models.entity.auto.Product]]
+}
+
+@listAllProductTypemap = @{
+	result.get("listAllProductTypemap").asInstanceOf[Map[String, String]]
+}
+@main("Trailer Movie") {
+<!-- START ACTIVE MENU -->
+<script>
+$(window).load(function() {
+	document.getElementById("tv_menu").className ='active';
+});
+</script>  
+<!-- END ACTIVE MENU -->
+<!-- general -->
+	<div class="general">
+		<h4 class="latest-text w3_latest_text">Featured Movies</h4>
+		<div class="container">
+			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+				<ul id="myTab" class="nav nav-tabs" role="tablist">
+			
+			
+			@if(listAllProductTypemap != null){
+					@for((key, value) <- listAllProductTypemap){
+						@if(key=="1"){
+						<li role="presentation" class="active"><a href="#@value" id="@value-tab" role="tab" data-toggle="tab" aria-controls="@value" aria-expanded="true">@value</a></li>
+						}else{
+						<li role="presentation"><a href="#@value" role="tab" id="@value-tab" data-toggle="tab" aria-controls="@value" aria-expanded="false">@value</a></li>
+						}
+					}
+			}
+			
+				
+				</ul>
+				
+				<div id="myTabContent" class="tab-content">
+					@for((key, value) <- listAllProductTypemap){
+						@if(key=="1"){
+						<div role="tabpanel" class="tab-pane fade active in" id="@value" aria-labelledby="@value-tab">
+							<div class="w3_agile_featured_movies">
+								<!-- itemstart -->
+								@for(pro <- result.get("listProductByType_"+key).asInstanceOf[List[models.entity.auto.Product]]) { 
+								@ProductFeatured(pro)
+								}
+								<!-- itemend -->
+								<div class="clearfix"> </div>
+							</div>
+						</div>
+						}else{
+						     <div role="tabpanel" class="tab-pane fade" id="@value" aria-labelledby="@value-tab">
+								@for(pro <- result.get("listProductByType_"+key).asInstanceOf[List[models.entity.auto.Product]]) {
+									@ProductFeatured(pro)
+								}
+							<div class="clearfix"> </div>							
+						</div>
+						}
+					}
+
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- //general -->
+<!--body wrapper start-->
+	<div class="review-slider">
+		 <h4 class="latest-text">TV - Series Reviews</h4>
+			   <div class="container">
+				<div class="w3_agile_banner_bottom_grid">
+					<div id="owl-demo" class="owl-carousel owl-theme">				
+					@for(pro <- listProductBannerBottom) { 
+					<div class="item">
+					@product(pro)
+					</div>
+					}
+						
+					</div>
+				</div>
+		<!--body wrapper end-->
+	</div>	
+<!-- //general -->
+	</div>
+	
+	}

@@ -1,0 +1,15 @@
+	@(news:models.entity.auto.News)
+	<div class="col-md-6 w3-agileits-news-left" style ="margin:4px 0 0 0 ">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="@routes.NewsController.newssingle(news.id)"><img class="img-responsive" src="assets/@news.imgnomal" alt=""  /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="@routes.NewsController.newssingle(news.id)">@news.title</a></h5>
+													<p>@models.util.BBUtil.subDescription(news.description,80)</p>
+													<ul>
+														<li><i class="fa fa-clock-o" aria-hidden="true"></i>@models.util.BBUtil.getTime(news.createdDate)</li>
+														<!-- li><i class="fa fa-eye" aria-hidden="true"></i> 2642</li> -->
+													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>

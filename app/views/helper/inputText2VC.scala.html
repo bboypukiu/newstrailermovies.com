@@ -1,0 +1,70 @@
+@(inputType: String, name: String, value: String, rows: String, cols: String, cls: String, vc: String)
+
+<!-- 
+1:inputType: String
+2:name: String
+3:value: String
+4:rows: String
+5:cols: String
+6:cls: String
+7:vc: String
+-->
+
+@inputType match {
+
+	case "VcInputTextarea" => {
+		@if(vc == "enabled"){
+			<textarea id="@name" name="@name" rows="@rows" cols="@cols" class="form-control @cls">@value</textarea>
+		}else{
+			<span class="text-preline text-break">@value</span>
+			<input type="hidden" id="@name" name="@name" class="@cls" value="@value" />
+		}
+	}
+
+	case "VcInputTextareaUrl" => {
+		@if(vc == "enabled"){
+			<textarea id="@name" name="@name" rows="@rows" cols="@cols" class="form-control @cls">@value</textarea>
+		}else{
+			@if(value != null){
+				@for(line <- value.lines){
+					@if(line.startsWith("http://") || line.startsWith("https://")){
+						<a target="_blank" href="@line">@line</a><br />
+					}else{
+						@line<br />
+					}
+				}
+			}
+			<input type="hidden" id="@name" name="@name" class="@cls" value="@value" />
+		}
+	}
+
+	case "VcInputSearchTextArea" => {
+		@if(vc == "enabled"){ 
+			<textarea id="@name" name="@name" rows="@rows" cols="@cols" class="form-control @cls">@value</textarea>
+			<input type="checkbox" id="@{name}Like" class="@cls" name="@{name}Like" value="li"/>			
+			<label for="@{name}Like" class="@cls">@Messages("item.common.data.like")</label>
+			<input type="checkbox" id="@{name}Not" class="@cls" name="@{name}Not" value="no" />
+			<label for="@{name}Not" class="@cls">@Messages("item.common.data.not")</label><br />
+			
+			(@Messages("item.common.data.searchtype")
+			<input type="radio" id="@{name}TypeNone" class="@cls" value="none" name="@{name}Type" checked />
+			<label for="@{name}TypeNone" class="@cls">@Messages("item.common.data.notspecified")</label>
+			<input type="radio" id="@{name}TypeNotBlank" class="@cls" value="notblank" name="@{name}Type" />
+			<label for="@{name}TypeNotBlank" class="@cls">@Messages("item.common.data.nonblank")</label>
+			<input type="radio" id="@{name}TypeBlank" class="@cls" value="blank" name="@{name}Type" />
+			<label for="@{name}TypeBlank" class="@cls">@Messages("item.common.data.blank")</label>)
+		}else{
+			<span class="text-preline text-break">@value</span>
+			<input type="hidden" id="@name" name="@name" class="@cls" value="@value" />
+		}
+	}
+	
+	case "VcInputSearchDateTime" => {
+		<input type="text" id="@{name}Year" name="@{name}Year" value="" class="form-control @cls" />
+		<input type="text" id="@{name}Month" name="@{name}Month" value="" class="form-control @cls" />
+		<input type="text" id="@{name}Day" name="@{name}Day" value="" class="form-control @cls" />
+		<input type="text" id="@{name}Minute" name="@{name}Minute" value="" class="form-control @cls" />
+		<input type="text" id="@{name}Second" name="@{name}Second" value="" class="form-control @cls" />
+		
+	}
+}

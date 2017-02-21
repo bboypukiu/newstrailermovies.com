@@ -1,0 +1,11 @@
+@(inputType: String, value: Boolean)
+
+@inputType match {
+	case "VcInputEnabled" => {
+		@if(value){
+			@Messages("item.common.data.enabled")
+		}else{
+			@Messages("item.common.data.disabled")
+		}
+	}
+}

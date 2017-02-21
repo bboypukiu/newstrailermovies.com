@@ -1,0 +1,72 @@
+@(listProduct: List[models.entity.auto.Product])
+
+@import asia.chiase.core.util._
+@import models.util._
+@main("Trailer Movie") {
+@if(listProduct.size > 0){
+<div id="page-content">
+    <div id='wrap'>
+    @helper.inputTextVC("VcLinkSimple", "btn_add", "", Messages("item.common.action.add"), null, "btn btn-primary", "/administrator/productAdd", "enabled")
+    
+    <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-orange">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 clearfix">
+                                	       <div id="div_id_game_list">
+						<table id="tbl_id_game_list" class="table table-bordered">
+							<thead>
+							<tr>
+								<th class="text-center">No</th>
+								<th class="text-center">Product Name</th>
+								<th class="text-center">Product Des</th>
+								<th class="text-center">Product Category</th>
+								<th class="text-center">Img</th>
+								<th class="text-center">LinkVideo</th>
+								<th class="text-center">Time</th>
+								<th class="text-center">Country</th>
+								<th class="text-center">Rate</th>
+								<th class="text-center"></th>
+							</tr>
+							</thead>
+							<tbody>
+							@for((model, index) <- listProduct.zipWithIndex){
+							        <tr>
+				 					<td class="text-center">@{index+1}</td>
+				 					<td>@model.title</td>
+									<td>@BBUtil.subDescription(model.description,100)</td>
+									<td>@model.category</td>
+									<td>@model.imgmax</td>
+									<td>@model.linkvideo</td>
+									<td>@model.time</td>
+									<td>@model.country</td>
+									<td>@model.rate</td>
+									<td class="text-center">
+										<a href="@backend.routes.ProductAdministratorController.productEdit(model.id)" class="btn btn-primary" >@Messages("item.common.edit")</a>
+									</td>
+										</tr>
+							}
+							</tbody>
+						</table>
+					</div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- container -->
+    
+    
+			
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+	
+}
+
+
+</div> <!-- page-container -->
+}

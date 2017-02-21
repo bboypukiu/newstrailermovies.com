@@ -1,0 +1,28 @@
+@(currentPage: Integer, pageCount: Integer)
+<div class="blog-pagenat-wthree" id="paggingProduct">
+  <ul class="pagination">
+  	
+  	
+  	<li><a  class="btn btn-group frist"  onclick="currentPage=$('#pageCurentProduct').val();if(currentPage==1) {pagging_Genres_PagesNews(1);} else{pagging_Genres_PagesNews(currentPage-1);}">Prev</a></li>
+  	
+
+		@for(index <-1 to pageCount) {
+		@if(index==1){
+			
+			<li class="active" id="paggingProduct_1"><a  class="btn btn-group"  onclick="pagging_Genres_PagesNews(@index);">@index</a></li>
+			}	else{
+			@if(currentPage == index) {
+			  <li id="paggingProduct_@index" ><a  class="btn btn-group" onclick="pagging_Genres_PagesNews(@index);">@index</a></li>
+			} else {
+				<li id="paggingProduct_@index"><a class="btn btn-group"  onclick="pagging_Genres_PagesNews(@index);">@index</a></li>
+			}
+			}
+		}
+		
+	<li><a class="btn btn-group last"    onclick="currentPage=$('#pageCurentProduct').val();if(currentPage == @pageCount) {pagging_Genres_PagesNews(@pageCount);} else{pagging_Genres_PagesNews(parseInt(currentPage) + 1);}">Next</a></li>
+  	
+		
+
+    </ul>
+</div>
+

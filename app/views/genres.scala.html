@@ -1,0 +1,116 @@
+@(result: Map[String, Object])
+@listProductBannerBottom = @{
+	result.get("listProductBannerBottom").asInstanceOf[List[models.entity.auto.Product]]
+}
+
+@listProductByCategory = @{
+	result.get("listProductByCategory").asInstanceOf[List[models.entity.auto.Product]]
+}
+@totalPageCategory = @{
+	result.get("totalPageCategory").asInstanceOf[Integer]
+}
+
+@idCate = @{
+	result.get("id").asInstanceOf[Integer]
+}
+
+@main("Trailer Movie") {
+
+<!-- START ACTIVE MENU -->
+<script>
+$(window).load(function() {
+	document.getElementById("genres_menu").className ='active';
+});
+</script>  
+<!-- END ACTIVE MENU -->
+
+<input type="hidden" id="pageCurentProduct" value="1">
+
+
+    <script type="text/javascript" src='@routes.PaggingController.javascriptRoutes()'></script> 
+    <script type="text/javascript"   charset="utf-8">
+    var pagging_Genres_PagesNews = function(pages) {
+    	$('#pageCurentProduct').val(pages);
+    	$("#paggingProduct li").parent().find('li').removeClass("active");
+    	document.getElementById("paggingProduct_"+pages).className ='active';
+    	
+    	myJsRoutes.controllers.PaggingController.pagging_Genres_PagesNews(@idCate,pages).ajax({
+        success: function(data) {
+          $("#resultProduct").html(data);
+          $('body').scrollTop(0);
+        },
+        error: function() {
+        	 $("#resultProduct").html(null);
+        }
+      })
+    };
+    
+	</script>
+
+
+<!-- /w3l-medile-movies-grids -->
+	<div class="general-agileits-w3l">
+		<div class="w3l-medile-movies-grids">
+				<!-- /movie-browse-agile -->
+				      <div class="movie-browse-agile">
+					     <!--/browse-agile-w3ls -->
+						<div class="browse-agile-w3ls general-w3ls">
+								<div class="tittle-head">
+									<h4 class="latest-text">Family Movies </h4>
+									<div class="container">
+										<div class="agileits-single-top">
+											<ol class="breadcrumb">
+											  <li><a href="/">Home</a></li>
+											  <li class="active">Genres</li>
+											</ol>
+										</div>
+									</div>
+								</div>
+								     <div class="container">
+							<div  class="browse-inner">
+							  <div id="resultProduct" >
+							   @for(pro <- listProductByCategory) { 
+								@ProductFeatured(pro)
+								}
+							 </div>
+								<div class="clearfix"> </div>
+						   </div>
+								</div>
+						</div>
+				<!--//browse-agile-w3ls -->
+						
+						 @if(totalPageCategory >1 ){
+				         	@genres_pagging(1,totalPageCategory)
+				         	
+				         }
+						
+						
+					</div>
+				    <!-- //movie-browse-agile -->
+				   <!--body wrapper start-->
+				<!--body wrapper start-->
+					<div class="review-slider">
+						 <h4 class="latest-text">Movie Reviews</h4>
+						       <div class="container">
+						 		<div class="w3_agile_banner_bottom_grid">
+				<div id="owl-demo" class="owl-carousel owl-theme">
+					
+					@for(pro <- listProductBannerBottom) { 
+					<!-- itemstart -->
+					<div class="item">
+					@product(pro)
+					</div>
+					<!-- itemend -->
+					}
+					
+
+				</div>
+			</div>
+						<!--body wrapper end-->
+					</div>	
+			</div>	
+		</div>
+	<!-- //w3l-medile-movies-grids -->
+	</div>
+	<!-- //comedy-w3l-agileits -->
+}

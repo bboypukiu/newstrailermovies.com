@@ -1,0 +1,13 @@
+@(pro:models.entity.auto.Product)
+	<div class="single-right-grids">
+							<div class="col-md-4 single-right-grid-left">
+								<a href="@routes.HomeController.single(pro.id)"><img src="assets/@pro.imgnomal" alt="" /></a>
+							</div>
+							<div class="col-md-8 single-right-grid-right">
+								<a href="@routes.HomeController.single(pro.id)" class="title"> @pro.title</a>
+								<p class="author"><a href="#" class="author">@models.util.BBUtil.getCategoryName(pro.category)</a></p>
+								
+								<p class="views">@models.util.BBUtil.subDescription(pro.description,100)</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>

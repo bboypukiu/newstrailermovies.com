@@ -1,0 +1,96 @@
+@(news : models.entity.auto.News)
+
+@import asia.chiase.core.util._
+@import models.define._
+@main("Trailer Movie") {
+
+<div id="page-content">
+    <div id='wrap'>
+    <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <h4>@Messages("item.common.title.detail.area")</h4>
+
+								 <form id="id_form_game"  method=POST class="form-horizontal" enctype="multipart/form-data"  data-validate="parsley" id="validate-form">
+								 </form>
+								 @helper.form(action = backend.routes.NewsAdministratorController.saveNews, 'enctype -> "multipart/form-data", 'id -> "myForm") {
+								 
+					<div class="row">
+						<div class="col-md-6">
+							<fieldset>
+								<div data-row-span="2">
+								 	<div data-field-span="1" hidden="true">
+										<label>News Id</label>
+										<input type="text" id="newsId"  name="newsId" placeholder="id"  class="form-control">
+									</div>
+									
+									<div data-field-span="1">
+										<label>News Title</label>
+										<input type="text" id="newsTitle"   name="newsTitle" placeholder="News Title" required="required" class="form-control">
+									</div>
+										<div data-field-span="1">
+										<label>Description</label>
+										<input type="text" id="description"   name="description" placeholder="description" required="required" class="form-control">
+									</div>
+									<div data-field-span="1">
+								    	<label>Img Max</label>
+								    	@helper.inputFileVC("VcFileImage2", "image", "", "img_id_news_ava", "", "", "", "", "enabled")
+								    	<br>
+								    	@helper.inputFileVC("FormatImage3", "img_id_news_ava", "", "", null, "", "", "max-width:100px; max-height:80px;", "")
+								    </div>
+								    
+								    <div data-field-span="1">
+								    	<label>Img Nomal</label>
+								    	@helper.inputFileVC("VcFileImage2", "imagePoster", "", "img_id_news_imagePoster", "", "", "", "", "enabled")
+								    	<br>
+								    	@helper.inputFileVC("FormatImage3", "img_id_news_imagePoster", "", "", null, "", "", "max-width:100px; max-height:80px;", "")
+								    </div>
+
+									<div data-field-span="1">
+										<label>Deleted</label>
+						                    <div class="radio">
+						                      <label>
+						                        <input type="radio"  value="1" id="optionsRadios1" name="optionsRadios">
+						                       YES
+						                      </label>
+						                       <label>
+						                        <input type="radio" checked="" value="0" id="optionsRadios2" name="optionsRadios">
+						                       NO
+						                      </label>
+						                    </div>
+									</div>
+								</div>
+							</fieldset>
+
+
+						</div>
+						</div>
+						
+									
+                    <br/>
+		<div class="row">
+                            <div class="col-sm-5" >
+                                <div class="btn-toolbar">
+                                @helper.inputTextVC("VcSubmit", "btn_upd", "", Messages("item.common.action.upd"), null, "btn btn-primary", "", "enabled")
+                                
+                                @helper.inputTextVC("VcLinkSimple", "btn_bck", "", Messages("item.common.action.bck"), null, "btn btn-primary", "/administrator/newsList", "enabled")
+                                </div>
+                            </div>
+        </div>
+                    
+                    
+                   } 
+                </div>
+            </div>
+        </div> <!-- container -->
+    
+    
+			
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+
+
+
+</div> <!-- page-container -->
+}

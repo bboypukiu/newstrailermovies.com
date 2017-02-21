@@ -1,0 +1,30 @@
+@(listNewTop:List[models.entity.auto.News])
+						<!-- //news-right-top -->
+						<!-- news-right-bottom -->
+						<div class="news-right-bottom">
+							<div class="wthree-news-right-heading">
+								<h3>Top News</h3>
+							</div>
+							<div class="news-right-bottom-bg">
+								<div class="news-grids-bottom">
+									
+									
+									@for(news <- listNewTop){
+									<div class="top-news-grid">
+										<div class="top-news-grid-heading">
+											<a href="@routes.NewsController.newssingle(news.id)">@news.title</a>
+										</div>
+										<div class="w3ls-news-t-grid top-t-grid">
+											<ul>
+												<li><i class="fa fa-clock-o"></i>@news.createdDate</li>
+												<li><i class="fa fa-user"></i>Admin</li>
+											</ul>
+										</div>
+									</div>
+						           }
+									
+									
+									
+								</div>
+							</div>
+						</div>

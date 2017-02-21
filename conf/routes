@@ -1,0 +1,62 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.HomeController.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+
+GET     /moviesclip                           controllers.HomeController.single(id:Integer)
+
+GET     /list                             controllers.ListController.list()
+
+GET     /series                             controllers.SeriesController.series()
+GET     /news                             controllers.NewsController.news()
+
+GET     /newssingle                           controllers.NewsController.newssingle(id:Integer)
+
+GET  /contact				controllers.Application.contact()
+GET  /faq					controllers.Application.faq()
+GET  /shortcodes				controllers.Application.shortcodes()
+GET  /icons				controllers.Application.icons()
+
+GET     /genres                             controllers.GenresController.genres(id:Integer)
+
+GET		/genres/paging            controllers.PaggingController.pagging_Genres_PagesNews(typ:Integer,page:Integer)
+
+GET     /javascriptRoutes                     controllers.PaggingController.javascriptRoutes()
+
+
+
+GET  /administrator/index				backend.ProductAdministratorController.index()
+GET  /administrator/productList				backend.ProductAdministratorController.index()
+GET  /administrator/productEdit          backend.ProductAdministratorController.productEdit(id:Integer)
+GET  /administrator/productAdd          backend.ProductAdministratorController.productAdd()
+POST  /administrator/saveProduct          backend.ProductAdministratorController.saveProduct()
+
+
+GET  /administrator/categoryList				backend.CategoryAdministratorController.categoryList()
+GET  /administrator/categoryEdit          backend.CategoryAdministratorController.categoryEdit(id:Integer)
+GET  /administrator/categoryAdd          backend.CategoryAdministratorController.categoryAdd()
+POST  /administrator/saveCategory          backend.CategoryAdministratorController.saveCategory()
+
+
+GET  /administrator/newsList				backend.NewsAdministratorController.newsList()
+GET  /administrator/newsEdit          backend.NewsAdministratorController.newsEdit(id:Integer)
+GET  /administrator/newsAdd          backend.NewsAdministratorController.newsAdd()
+POST  /administrator/saveNews          backend.NewsAdministratorController.saveNews()
+
+GET  /administrator/typeList				backend.TypeAdministratorController.typeList()
+GET  /administrator/typeEdit          backend.TypeAdministratorController.typeEdit(id:Integer)
+GET  /administrator/typeAdd          backend.TypeAdministratorController.typeAdd()
+POST  /administrator/saveType          backend.TypeAdministratorController.saveType()
+
+GET  /administrator/countryList				backend.CountryAdministratorController.countryList()
+GET  /administrator/countryEdit          backend.CountryAdministratorController.countryEdit(id:Integer)
+GET  /administrator/countryAdd          backend.CountryAdministratorController.countryAdd()
+POST  /administrator/saveCountry          backend.CountryAdministratorController.saveCountry()
+
+

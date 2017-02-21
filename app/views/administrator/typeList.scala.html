@@ -1,0 +1,60 @@
+@(listType: List[models.entity.auto.Producttype])
+
+@import asia.chiase.core.util._
+@import models.util._
+@main("Trailer Movie") {
+@if(listType.size > 0){
+<div id="page-content">
+    <div id='wrap'>
+    @helper.inputTextVC("VcLinkSimple", "btn_add", "", Messages("item.common.action.add"), null, "btn btn-primary", "/administrator/typeAdd", "enabled")
+    
+    <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-orange">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 clearfix">
+                                	       <div id="div_id_game_list">
+						<table id="tbl_id_game_list" class="table table-bordered">
+							<thead>
+							<tr>
+								<th class="text-center">No</th>
+								<th class="text-center">Type Name</th>
+							    
+								<th class="text-center"></th>
+							</tr>
+							</thead>
+							<tbody>
+							@for((model, index) <- listType.zipWithIndex){
+							        <tr>
+				 					<td class="text-center">@{index+1}</td>
+				 					<td>@model.name</td>
+									
+									<td class="text-center">
+										<a href="@backend.routes.TypeAdministratorController.typeEdit(model.id)" class="btn btn-primary" >@Messages("item.common.edit")</a>
+									</td>
+										</tr>
+							}
+							</tbody>
+						</table>
+					</div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- container -->
+    
+    
+			
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+	
+}
+
+
+</div> <!-- page-container -->
+}

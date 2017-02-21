@@ -1,0 +1,43 @@
+@(pro:models.entity.auto.Product,listProductByType4:List[models.entity.auto.Product])
+<li>
+							<div class="agile_tv_series_grid">
+								<div class="col-md-6 agile_tv_series_grid_left">
+									<div class="w3ls_market_video_grid1">
+										<img src="assets/@pro.imgmax" alt=" " class="img-responsive" />
+										 <a class="w3_play_icon" href="#small-dialog_@pro.id">
+											<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+										</a>
+									</div>
+								</div>
+								<div class="col-md-6 agile_tv_series_grid_right">
+									<p class="fexi_header">@pro.title</p>
+									<p class="fexi_header_para"><span class="conjuring_w3">Story Line<label>:</label></span>@pro.description</p>
+									<p class="fexi_header_para"><span>Date of Release<label>:</label></span> @models.util.BBUtil.getTime(pro.time) </p>
+									<p class="fexi_header_para">
+										<span>Genres<label>:</label> </span>
+										<a href="genres">@pro.getType()</a>
+																		
+									</p>
+									<p class="fexi_header_para fexi_header_para1"><span>Star Rating<label>:</label></span>
+										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+										<a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+									</p>
+								</div>
+								<div class="clearfix"> </div>
+								<div class="agileinfo_flexislider_grids">
+									@for(pro1 <- listProductByType4) { 
+									@ProductFeatured(pro1)
+									}
+							
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</li>
+		<div id="small-dialog_@pro.id" class="small-dialog mfp-hide">
+			<iframe width="640" height="480" 			src='@pro.linkvideo'  
+			 frameborder="0" allowfullscreen="0"></iframe>
+	        </div>
+		

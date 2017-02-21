@@ -1,0 +1,112 @@
+@(inputType: String, name: String, optionMap: Map[String, String], default: String, selectedList: List[String], cls: String, custom: String, vc: String)
+
+<!--
+1:type
+2:name
+3:map
+4:selected value for single
+5:selected list for multiple
+6:class name
+7:custom name
+8:enabled
+ -->
+@inputType match {
+    case "VcSelectSingle" => {
+        @if(vc == "enabled") {
+			<select id="@name" name="@name" class="form-control @cls">
+				@if(optionMap != null){
+					@for((key, value) <- optionMap){
+						<option value="@key" @if(key == default){selected} >@Messages(value)</option>
+					}
+				}
+			</select>
+		}else{
+			<span>@Messages(optionMap.get(default))</span>
+			<input type="hidden" id="@name" name="@name" class="@cls" value="@default" />
+		}
+    }
+
+    case "VcSelectSingleAll" => {
+        @if(vc == "enabled") {
+			<select id="@name" name="@name" class="form-control @cls">
+				<option value="">All</option>
+				@if(optionMap != null){
+					@for((key, value) <- optionMap){
+						<option value="@key" @if(key == default){selected} >@Messages(value)</option>
+					}
+				}
+			</select>
+		}else{
+			<span>@Messages(optionMap.get(default))</span>
+			<input type="hidden" id="@name" name="@name" class="@cls" value="@default" />
+		}
+    }
+
+    case "VcSelectSingleCustom" => {
+    	@if(vc == "enabled") {
+			<select id="@name" name="@name" class="form-control @cls">
+				<option value="0" @if("0" == default){selected}>@custom</option>
+				@if(optionMap != null){
+					@for((key, value) <- optionMap){
+						<option value="@key" @if(key == default){selected}>@Messages(value)</option>
+					}
+				}
+			</select>
+		}else{
+			@if("0" == default){
+				<span>@custom</span>
+				<input type="hidden" id="@name" name="@name" class="@cls" value="0" />
+			}else{
+				@Messages(optionMap.get(default))
+				<input type="hidden" id="@name" name="@name" class="@cls" value="@default" />
+			}
+		}
+    }
+
+    case "VcSelectMultiOrg" => {
+        @if(vc == "enabled") {
+			<select id="@name" name="@name" class="multiselect" multiple="multiple">
+				@for((key, value) <- optionMap){
+					<option value="@key">@Messages(optionMap.get(key))</option>
+				}
+			</select>
+		}else{
+			@for((key, value) <- optionMap){
+				@for(slt <- selectedList){
+					@if(key == slt){
+						@optionMap.get(key)<br>
+					}
+				}
+			}
+		}
+    }
+
+    case "VcSelectMulti" => {
+        @if(vc == "enabled") {
+			<select id="@name" name="@name" class="multiselect" multiple="multiple">
+				@for((key, value) <- optionMap){
+					<option value="@key" @if(selectedList.contains(key)){selected} >@Messages(optionMap.get(key))</option>
+				}
+			</select>
+			<script>
+				$("#@name").multiSelect({
+					selectableHeader: '<div class="custom-header">@Messages("item.common.data.selectable")</div>',
+					selectionHeader: '<div class="custom-header">@Messages("item.common.data.selection")</div>'
+				});
+			</script>
+			<style type="text/css">
+				.ms-container ul.ms-list {
+					height:105px;
+				}
+			</style>
+		}else{
+			@for((key, value) <- optionMap){
+				@for(slt <- selectedList){
+					@if(key == slt){
+						@optionMap.get(key)<br>
+					}
+				}
+			}
+		}
+    }
+}

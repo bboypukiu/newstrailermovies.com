@@ -1,0 +1,15 @@
+@(inputType: String, name: String, value: String, maxValue: String, cls: String, vc: String)
+
+@inputType match {
+    case "VcInputNumber" => {
+		@if(vc == "enabled") {
+		<input type="text" id="@name" name="@name" value="@value" class="form-control @cls" style="text-align:right" />
+		}else{
+		<span>@value</span>
+		<input type="hidden" id="@name" name="@name" class="@cls" value="@value" />
+		}
+		<script>
+			$("#@name").autoNumeric('init', {aPad:false, mDec:'0', vMax: '@maxValue'});
+		</script>
+    }
+ }

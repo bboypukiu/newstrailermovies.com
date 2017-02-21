@@ -1,0 +1,16 @@
+@(inputType: String, value: String, dateValue: java.util.Date)
+ 
+<!-- 
+1:inputType: String
+2:value: String
+3:dateValue: java.util.Date
+-->
+ 
+@inputType match {
+    case "FormatDate2" => {
+    	<p style="text-align:center">
+    	@asia.chiase.core.util.CCDateUtil.getYear(dateValue)<br/>
+    	@asia.chiase.core.util.CCFormatUtil.formatDateCustom("MM/dd",dateValue)<br/>
+    	</p>
+    }
+}

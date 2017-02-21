@@ -1,0 +1,414 @@
+sm.title = Platform Backend
+sm.title.header = Platform Backend
+
+bb.notice.admin = Notice
+bb.notice.support = Notice
+bs.meta.description =
+bs.meta.keywords =
+
+sm.menu.group.title.master = Master
+
+## menu master
+sm.menu.master.title.member = Member Management
+sm.menu.master.title.user = User Management
+sm.menu.master.title.cp = CP Management
+sm.menu.master.title.keywords = Keywords management
+sm.menu.master.title.role = Role Management
+sm.menu.master.title.hotnews = Hot News Management
+sm.menu.master.title.game = Game Management
+sm.menu.master.title.gameserver = Game Server Management
+sm.menu.master.title.paymentgame = Payment Status Game Management
+sm.menu.master.title.transaction = Transaction Management
+sm.menu.master.title.common = Image Management
+sm.menu.master.title.checkCard = Kiểm tra thẻ nạp
+sm.menu.master.title.checkFcoin = Kiểm tra đổi Fcoin
+sm.menu.master.title.exportCard = Xuất File Đối Soát Thẻ Nạp
+sm.menu.master.title.exportFcoin = Xuất file đối soát Game
+
+bs.menu.user.title = User
+bs.menu.user.search = Search user(3)
+bs.menu.customer.search = Search customer
+
+
+bs.menu.setting.title = Setting
+bs.menu.setting.pass.change = Password change(31)
+bs.menu.setting.log = Log setting(33)
+bs.menu.setting.access = Access IP(34)
+
+item.message.failure =　Update failure
+item.message.success =　Update success
+item.message.alert.bigdata = Data is too big
+
+item.data.gender.male = Male
+item.data.gender.female = Female
+
+item.data.user.status.active = Active
+item.data.user.status.inactive = Inactive
+item.data.user.status.delete = Delete
+item.data.paymentgame.status.on = ON
+item.data.paymentgame.status.off = OFF
+item.data.paymentgame.delete.on = NO
+item.data.paymentgame.delete.off = YES
+
+item.data.hotnews.type.home = Dành cho trang Home
+item.data.hotnews.type.info = Dành cho trang cá nhân
+
+item.data.author.role.admin = Admin
+item.data.author.role.cskh1 = CSKH1
+item.data.author.role.cskh2 = CSKH2
+
+item.data.game.criteria.hot = Hot game
+item.data.game.criteria.new = New game
+
+item.data.transaction.type.tk = Nạp tiền vào tài khoản
+item.data.transaction.type.game = Chuyển tiền vào game
+
+item.data.transaction.status.success = Thành công
+item.data.transaction.status.error = Thất bại
+
+item.data.event.event = Thuộc event
+item.data.event.not.event = Không thuộc event
+
+item.data.telco.viettel = Viettel
+item.data.telco.vina = Vinaphone
+item.data.telco.mobile = Mobilephone
+item.data.telco.zing = Zing
+item.data.telco.vcoin = Vcoin
+
+#################################
+####### play-plugin ######
+### You can't change key name ###
+#################################
+chiase.play.js.message.confirm = Are you sure?
+chiase.play.js.message.failure = Failure. Please try it again.
+chiase.play.js.message.timeout = Timeout. Please sign in again.
+
+chiase.play.success.update = You success update.
+
+chiase.play.error.system = System error. Please inform to us.
+chiase.play.error.no.data = Target data already may be changed. Please refresh screen.
+chiase.play.error.invalid.token = You have security problem. Please try it again.
+chiase.play.error.auth = You have problem about auth. please sign in again.
+chiase.play.error.upload = You failure file upload.
+
+chiase.play.error.fail.file = Failure for file operation. Please inform to us.
+
+######################
+####### common #######
+######################
+item.common.action.add = Add
+item.common.action.add.row = Add row
+item.common.action.rgs = Register
+item.common.action.upd = Update
+item.common.action.upl = Upload
+item.common.action.del = Delete
+item.common.action.dtl = Detail
+item.common.action.edt = Edit
+item.common.action.bck = Back
+item.common.action.ccl = Cancel
+item.common.action.sav = Save
+item.common.action.bck.lst = Back to list
+item.common.action.bck.dtl = Back to detail
+item.common.action.dwl = Download
+item.common.action.cfm = Confirm
+item.common.action.snd = Send
+item.common.action.find = Find
+item.common.action.search = Search
+item.common.action.clr = Clear
+item.common.action.drw = Withdraw
+item.common.action.ref = Refresh
+item.common.action.slt = Select
+item.common.action.cpy = Copy
+
+item.common.file.pdf = PDF
+item.common.file.xls = XLS
+
+
+item.common.action.upd-month = Update month
+item.common.action.initialCost = Initial cost
+item.common.action.updateCost = Update cost
+item.common.action.monthlyFee= Monthly fee
+item.common.action.annualSum = Annual Sum
+item.common.action.contractStartDate = Contract start date
+item.common.action.contractEndDate = Contract end date
+
+item.common.action.new = New
+
+item.common.yes = Yes
+item.common.no = No
+item.common.file = File
+
+item.common.data.all = All
+item.common.data.none = None
+item.common.data.enabled = Enabled
+item.common.data.disabled = Disabled
+
+item.common.data.selectable = Selectable
+item.common.data.selection = Selection
+item.common.data.withdrawal = Withdrawal
+
+item.common.data.contract = Contract
+item.common.data.contractEnd = Contract end
+
+item.common.title.search.area = Search area
+item.common.title.list.area = List area
+item.common.title.detail.area = Detail area
+
+item.data.bank.ctg.customer = Customer
+item.data.bank.ctg.outsourcing = Outsourcing
+item.data.bank.ctg.other = Other
+
+item.data.dept.type.sales = Sales
+item.data.dept.type.others = Others
+
+item.data.dept.auth.admin = Administrator
+item.data.dept.auth.member = Member
+
+item.data.working.type.working = Working
+item.data.working.type.leave = Leave
+
+item.data.bank.account.type.saving = Saving
+item.data.bank.account.type.checking = Checking
+item.data.bank.account.type.deposit = Deposit
+
+item.data.customer.contact.status.received = Received
+item.data.customer.contact.status.not.received = Not received
+
+item.data.customer.invoice.target.type.to.company = To company
+item.data.customer.invoice.target.type.to.represent = To represent
+item.data.customer.invoice.target.type.to.contact = To contact
+item.data.customer.invoice.target.type.to.billcontact = To bill contact
+item.data.customer.invoice.target.type.to.invoicetarget = To invoice target
+
+item.data.invoice.item.type.all = All
+item.data.invoice.item.type.payment = Payment
+item.data.invoice.item.type.withdrawal = Withdrawal
+
+support.item.search.today = Today
+support.item.search.clear = Clear
+
+account.title.signin = Sign in
+account.title.signout = Sign out
+account.title.password = Change password
+account.title.and = and
+account.title.term.service = Service of term
+account.title.term.privacy = Privacy policy
+account.title.language = Language
+account.title.term.service = Service of term
+account.title.term.privacy = Privacy policy
+
+account.alert.check.term = I agree with
+account.alert.reset.password.with.account = In case you remember account name.
+account.alert.reset.password.with.mail = In case you do not remember account name.
+
+account.action.reset.account = Reset by account
+account.action.reset.mail = Reset by email
+
+account.validate.nomatch.oldpassword = Old password is incorrect!
+account.alert.success.changepass = Success change password
+
+common.validate.signin.requi = Username or Password not empty
+common.validate.signin.invalid = Invalid User name or Password
+common.validate.signin.address = This address is no good
+common.validate.invalid.permission = You do not have permission.
+common.error.upload.fail = Upload failed.
+
+common.invalid.image.extension = This is not an allowed file type.
+
+##########################
+### Model field ######
+##########################
+
+models.service.account.model.MemberModel.uid = Member Id
+models.service.account.model.MemberModel.mail = Email
+models.service.account.model.MemberModel.givenname = Name
+models.service.account.model.MemberModel.telephonenumber = Phone number
+models.service.account.model.MemberModel.idcard = CMT
+models.service.account.model.MemberModel.address = Address
+models.service.account.model.MemberModel.birthday = Birthday
+models.service.account.model.MemberModel.sex = Sex
+models.service.account.model.MemberModel.status = Status
+models.service.account.model.MemberModel.cardDate = Ngày cấp
+models.service.account.model.MemberModel.city = Nơi cấp
+models.service.member.model.MemberModel.mail.duplicate = Duplicate email. Please change email.
+models.service.account.model.MemberModel.fromAge = Từ tuổi
+models.service.account.model.MemberModel.toAge = Đến tuổi
+
+models.service.user.model.UserModel.username = Username
+models.service.user.model.UserModel.email = Email
+models.service.user.model.UserModel.password = Password
+models.service.user.model.UserModel.fullname = Fullname
+models.service.user.model.UserModel.status = Status
+models.service.user.model.UserModel.groupId = Group
+models.service.user.model.UserModel.role = Role
+models.service.user.model.UserModel.username.duplicateUser = Duplicate user. Please change username.
+models.service.user.model.UserModel.game = Game
+
+models.service.role.model.RoleModel.roleName = Role Name
+models.service.role.model.RoleModel.roleDescription = Role Description
+models.service.role.model.RoleModel.status = Status
+
+models.service.admin.model.AdminModel.userLoginName = User name
+models.service.admin.model.AdminModel.password = Password
+
+models.service.hotnews.model.HotNewsModel.name = Title
+models.service.hotnews.model.HotNewsModel.link = Image
+models.service.hotnews.model.HotNewsModel.description = Description
+models.service.hotnews.model.HotNewsModel.status = Status
+models.service.hotnews.model.HotNewsModel.type = Type
+models.service.hotnews.model.HotNewsModel.shortDes = Short Description
+models.service.hotnews.model.HotNewsModel.linkAndroid = Link download Android
+models.service.hotnews.model.HotNewsModel.linkIos = Link download iOS
+models.service.hotnews.model.HotNewsModel.linkWp = Link download Windows phone
+models.service.hotnews.model.HotNewsModel.isEvent = Event
+
+models.service.game.model.GameModel.title = Title
+models.service.game.model.GameModel.description = Description
+models.service.game.model.GameModel.image = Image
+models.service.game.model.GameModel.link = Link
+models.service.game.model.GameModel.category = Category
+models.service.game.model.GameModel.criteria = Tiêu chí
+models.service.game.model.GameModel.code = Game code
+models.service.game.model.GameModel.status = Status
+models.service.game.model.GameModel.linkDownloadIos = Link download iOS
+models.service.game.model.GameModel.linkDownloadAndroid = Link download android
+models.service.game.model.GameModel.linkDownloadWp = Link download windows phone
+
+models.service.gameserver.model.GameServerModel.serverName = Server Name
+models.service.gameserver.model.GameServerModel.game = Game
+models.service.gameserver.model.GameServerModel.ip = IP
+models.service.gameserver.model.GameServerModel.code = Server code
+models.service.gameserver.model.GameServerModel.status = Status
+
+models.service.transaction.model.TransactionModel.date = Thời gian
+models.service.transaction.model.TransactionModel.transactionCode = Mã giao dịch
+models.service.transaction.model.TransactionModel.member = Tài khoản
+models.service.transaction.model.TransactionModel.cardType = Loại thẻ
+models.service.transaction.model.TransactionModel.amount = Mệnh giá (VNĐ)
+models.service.transaction.model.TransactionModel.oldAmount = Old amount
+models.service.transaction.model.TransactionModel.newAmount = New amount
+models.service.transaction.model.TransactionModel.fromDate = Từ ngày
+models.service.transaction.model.TransactionModel.toDate = Đến ngày
+models.service.transaction.model.TransactionModel.type = Type
+models.service.transaction.model.TransactionModel.status = Trạng thái
+models.service.transaction.model.TransactionModel.fcoin = Mệnh giá (Fcoin)
+models.service.transaction.model.TransactionModel.cardSerial = Serial
+models.service.transaction.model.TransactionModel.cardCode = Mã thẻ
+models.service.transaction.model.TransactionModel.game = Game
+models.service.transaction.model.TransactionModel.server = Server
+
+models.service.common.model.CommonModel.slideImage = Slide image
+models.service.common.model.CommonModel.slideImage1 = Slide image 1
+models.service.common.model.CommonModel.slideImage2 = Slide image 2
+models.service.common.model.CommonModel.slideImage3 = Slide image 3
+models.service.common.model.CommonModel.bannerQuangcao = Banner quảng cáo
+models.service.common.model.CommonModel.bannerNews = Banner  news
+models.service.common.model.CommonModel.bannerGame = Banner game
+models.service.gameserver.model.GameServerModel.ip.duplicateIp = Duplicate ip
+models.service.gameserver.model.GameServerModel.gameCode.duplicate = Duplicate server code
+models.service.games.model.GameModel.gameCode.duplicate = Duplicate game code
+
+models.service.role.model.KeywordsModel.keyword = Keywords
+models.service.role.model.KeywordsModel.status = Status
+
+models.service.paymentgame.model.PaymentGameModel.game = Game
+models.service.paymentgame.model.PaymentGameModel.gamecode = Game code
+models.service.paymentgame.model.PaymentGameModel.gameVer = Game version
+models.service.paymentgame.model.PaymentGameModel.status = Payment status
+models.service.paymentgame.model.PaymentGameModel.delete = Deleted
+
+##########################
+### Oval validation ######
+##########################
+oval.constraint.duplicate.system = Duplicated by system
+oval.constraint.duplicate.company = Duplicated by company
+oval.constraint.duplicate.user = Duplicated by user
+oval.constraint.notblackword = Is prohibit word
+oval.constraint.notblackmail = Is prohibit mail
+oval.alert.pattern.prohibition = include prohibition character
+oval.alert.pattern.account = character is not valid
+oval.alert.pattern.password = You need 1 more alphabet, number and symbol
+oval.alert.pattern.password.bs = You can use alphabet or number
+oval.alert.pattern.halfchar = you can not use 2 byte character
+oval.alert.pattern.num = only use use number
+oval.alert.pattern.tel = only use alphabet, number and '-'
+oval.alert.pattern.tel2 = only use number and '-'
+oval.alert.pattern.post = only use 999-9999 style
+oval.alert.pattern.date = date format is YYYY/MM/DD
+oval.alert.pattern.time = time format is HH:MM
+oval.alert.pattern.email = email format is invalid
+
+bs.oval.constraint.EqualToField.violated.email = is not match with Email
+bs.oval.constraint.EqualToField.violated.pass = is not match with Password
+
+##########################
+### Oval default message #
+##########################
+net.sf.oval.constraint.Assert.violated = does not satisfy condition: '{expression}'
+net.sf.oval.constraint.AssertFalse.violated = is not false
+net.sf.oval.constraint.AssertNull.violated = must be null
+net.sf.oval.constraint.AssertTrue.violated = is not true
+net.sf.oval.constraint.AssertURL.violated = is not a valid URL
+net.sf.oval.constraint.AssertValid.violated = is invalid
+net.sf.oval.constraint.CheckWith.violated = '{simpleCheck}' not satisfied
+net.sf.oval.constraint.DateRange.violated = is not in the range '{min}' through '{max}'
+net.sf.oval.constraint.Email.violated = is not a valid e-mail address
+net.sf.oval.constraint.EqualToField.violated = is not match with '{fieldName}'
+net.sf.oval.constraint.Future.violated = must be in the future
+net.sf.oval.constraint.HasSubstring.violated = must contain the substring ''{substring}''
+net.sf.oval.constraint.InstanceOf.violated = must be an instance of '{types}'
+net.sf.oval.constraint.InstanceOfAny.violated = must be an instance of '{types}'
+net.sf.oval.constraint.Length.violated = is not between '{min}' and '{max}'
+
+net.sf.oval.constraint.Max.violated = Can not be greater than '{max}'
+net.sf.oval.constraint.MaxLength.violated = Can not be longer than '{max}' characters
+net.sf.oval.constraint.MaxSize.violated = Can not have more than '{max}' elements
+net.sf.oval.constraint.MemberOf.violated = must be one of these values: '{members}'
+net.sf.oval.constraint.Min.violated = Can not be smaller than '{min}'
+net.sf.oval.constraint.MinLength.violated = Can not be shorter than '{min}' characters
+net.sf.oval.constraint.MinSize.violated = Can not have less than '{min}' elements
+net.sf.oval.constraint.NoSelfReference.violated = illegal self reference
+
+net.sf.oval.constraint.NotNull.violated = Can not be null
+net.sf.oval.constraint.NotNull.violated2 = Can not be null
+net.sf.oval.constraint.NotEmpty.violated = Can not be empty
+net.sf.oval.constraint.NotBlank.violated = Can not be blank
+
+net.sf.oval.constraint.NotEqual.violated = must select a item
+net.sf.oval.constraint.NotEqualToField.violated = must not equal to field '{fieldName}'
+
+net.sf.oval.constraint.NotMemberOf.violated = must not be one of these values: '{members}'
+
+net.sf.oval.constraint.MatchPattern.violated = does not match the pattern '{pattern}' '{abc}'
+net.sf.oval.constraint.NotMatchPattern.violated = must not match the pattern '{pattern}'
+net.sf.oval.constraint.NotNegative.violated = Can not be negative
+
+net.sf.oval.constraint.Past.violated = must be in the past
+net.sf.oval.constraint.Range.violated = is not in the range '{min}' through '{max}'
+net.sf.oval.constraint.Size.violated = does not have between '{min}' and '{max}' elements
+net.sf.oval.constraint.ValidateWithMethod.violated = indicated to be invalid
+
+net.sf.oval.guard.Pre.violated = does not satisfy pre condition: '{expression}'
+net.sf.oval.guard.Post.violated = does not satisfy post condition: '{expression}'
+
+net.sf.oval.exception.AccessingFieldValueFailedException.message = Accessing value of field '{fieldName}' failed.
+net.sf.oval.exception.ConstraintSetAlreadyDefinedException.message = Another constraint set with the same fully qualified id '{constraintSetId}' has already been defined.
+net.sf.oval.exception.ExpressionLanguageNotAvailableException.message = Expression language '{languageId}' is not available.
+net.sf.oval.exception.InvokingMethodFailedException.message = Invoking method '{methodName}' failed.
+net.sf.oval.exception.ObjectGraphNavigatorNotAvailableException.message = Object graph navigator '{id}' is not available.
+net.sf.oval.exception.UndefinedConstraintSetException.message = No constraint set with id '{constraintSetId}' defined.
+
+net.sf.oval.context.ConstructorParameterContext.parameter = parameter
+net.sf.oval.context.MethodParameterContext.parameter = parameter
+
+oval.constraint.compare.beforedate = Can not set before date to '{compareto}'
+title.name=Name
+sm.menu.master.title.gateway=Gateway
+sm.menu.master.title.product=Product
+sm.menu.master.title.payment=Payment
+sm.menu.master.title.paymentdetail=PaymentDetail
+item.common.edit=Edit
+item.common.button.update=Update
+item.common.button.create=Create
+item.common.save.success=Success
+item.common.save.error=Error

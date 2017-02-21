@@ -1,0 +1,27 @@
+@(currentPage: Integer, pageCount: Integer)
+<div class="col-lg-12 blog-pagenat-wthree" id="paggingAllGameGames">
+  <ul class="pagination">
+  	
+  	
+  	<li><a  class="btn btn-group"  onclick="currentPage=$('#pageCurentAllGame').val();if(currentPage==1) {pagging_AllGame_PagesGames(1);} else{pagging_AllGame_PagesGames(currentPage-1);}">&laquo;</a></li>
+  	
+
+		@for(index <-1 to pageCount) {
+		@if(index==1){
+			
+			<li class="active" id="paggingAllGameGames_1"><a  class="btn btn-group"  onclick="pagging_AllGame_PagesGames(@index);">@index</a></li>
+			}	else{
+			@if(currentPage == index) {
+			  <li id="paggingAllGameGames_@index" ><a  class="btn btn-group" onclick="pagging_AllGame_PagesGames(@index);">@index</a></li>
+			} else {
+				<li id="paggingAllGameGames_@index"><a class="btn btn-group"  onclick="pagging_AllGame_PagesGames(@index);">@index</a></li>
+			}
+			}
+		}
+		
+	<li><a class="btn btn-group"  onclick="currentPage=$('#pageCurentAllGame').val();if(currentPage == @pageCount) {pagging_AllGame_PagesGames(@pageCount);} else{pagging_AllGame_PagesGames(parseInt(currentPage) + 1);}">&raquo;</a></li>
+  	
+		
+
+    </ul>
+</div>
