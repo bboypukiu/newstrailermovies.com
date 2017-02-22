@@ -40,7 +40,7 @@ public class NewsServices {
 		return find.order(" created_date DESC").findList();
 	}
 	public static List<News> listNewTop() {
-		return find.order(" created_date DESC").setMaxRows(7).findList();
+		return find.order(" created_date DESC").setMaxRows(15).findList();
 	}
 	
 	
